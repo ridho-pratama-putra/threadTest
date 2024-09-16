@@ -1,0 +1,17 @@
+version: '3'
+services:
+  thread-test:
+    image: thread-test:0.0.1-SNAPSHOT
+    build: ./
+    env_file:
+      - ./environments/sit.env
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          cpus: '300m'
+          memory: 512M
+        reservations:
+          cpus: '250m'
+          memory: 128M
